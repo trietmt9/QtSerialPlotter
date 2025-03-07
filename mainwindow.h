@@ -3,7 +3,11 @@
 
 #include <QMainWindow>
 #include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
+#include <QMessageBox>
+#include <QString>
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,15 +20,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    QSerialPort *comPort;
-    QString SerialPortData;
+
+
     bool isDataReceived = false;
 
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void plot(double x, double y);
     void clear_data();
-    void readData();
+
 private slots:
 
     void on_stopBtn_clicked();
@@ -33,7 +37,10 @@ private slots:
 
     void on_sendBtn_clicked();
 
+    void readData();
 private:
     Ui::MainWindow *ui;
+    QSerialPort *comPort;
+    QString SerialPortData;
 };
 #endif // MAINWINDOW_H
