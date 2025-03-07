@@ -38,6 +38,11 @@ private slots:
     void on_sendBtn_clicked();
 
     void readData();
+
+    void populateSerialPorts(QComboBox *comPortCombo);
+
+    void populateBaudRates(QComboBox *baudRateCombo);
+
 private:
     Ui::MainWindow *ui;
     QSerialPort *comPort;
